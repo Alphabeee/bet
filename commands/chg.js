@@ -2,7 +2,7 @@ const { SlashCommandBuilder, PermissionFlagsBits } = require("discord.js");
 const fs = require("fs");
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("update")
+    .setName("chg")
     .setDescription("更新小隊員的錢錢")
     .addUserOption((option) =>
       option.setName("user").setDescription("要更改的小隊員的名字(@)").setRequired(true)

@@ -2,7 +2,7 @@ ckconst { SlashCommandBuilder } = require("discord.js");
 const fs = require("fs");
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName("check")
+    .setName("chk")
     .setDescription("確認自己有多少錢錢"),
   async execute(client, interaction) {
     const jsonDataIn = fs.readFileSync("players.json");

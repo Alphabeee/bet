@@ -39,8 +39,7 @@ module.exports = {
 
         //如果沒有資料就創建一個新的並回覆結果
         if (found == false) {
-            const newPlayer = { id: interaction.user.id, money: 500 };
-            players.push(newPlayer);
+            players.push({ id: interaction.user.id, money: 500 });
             const diceEmbed = new EmbedBuilder()
                 .setColor("#5865F2")
                 .setTitle(`🎲你得到了 ${diceResult}`)

@@ -1,35 +1,21 @@
-const { SlashCommandBuilder } = require("discord.js");
+const { SlashCommandBuilder, PermissionFlagsBits } = require("discord.js");
 const fs = require("fs");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("chg")
     .setDescription("change money")
-    .addUserOption((option) => {
-      option.setName("user").setDescription("user").setRequired(true);
-    }),
+    .addUserOption((option) =>
+      option.setName("user").setDescription("user").setRequired(true)
+    )
+    .addNumberOption((option) =>
+      option.setName("number").setDescription("user").setRequired(true)
+    )
+    .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
   async execute(client, interaction) {
     const jsonDataIn = fs.readFileSync("players.json");
     let testData = JSON.parse(jsonDataIn);
     const is = 0;
-    const USER = interaction.options.getUser("user");
-    for (let i = 0; i < testData.length; i++) {
-      if (testData[i].userid == interaction.user.id) {
-        is = 1;
-        interaction.reply({
-          content: `You have ${testData[i].money}$.`,
-          ephemeral: true,
-        });
-      }
-    }
-    if (!is) {
-      const newplayer = { id: interaction.user.id, money: 500 };
-      testData.push(newplayer);
-      const jsonDataOut = JSON.stringify(testData);
-      fs.writeFileSync("players.json", jsonDataOut);
-      interaction.reply({
-        content: `You have 500$.`,
-        ephemeral: true,
-      });
-    }
+    const u = interaction.options.getUser("user");
+    for (let i = 0; i < testData.length; i++) {}
   },
 };

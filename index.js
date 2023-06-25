@@ -1,4 +1,4 @@
-const { REST, EmbedBuilder, Collection } = require("discord.js");
+const { REST, EmbedBuilder, Collection, Routes } = require("discord.js");
 const { Client, GatewayIntentBits, Discord } = require("discord.js");
 const sqlite3 = require("sqlite3").verbose();
 const fs = require("fs");

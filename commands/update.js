@@ -51,7 +51,7 @@ module.exports = {
             }
         }
         if (is != 1) {
-            testData.push({ id: interaction.u.id, money: 500 + n });
+            testData.push({ id: u.id, money: 500 + n });
             if (n < -500) {
                 interaction.reply({
                     content: `玩家${u.username} 沒有錢了 現有${500}元`,

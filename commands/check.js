@@ -14,8 +14,8 @@ module.exports = {
                     content: `你現在有 ${testData[i].money}元`,
                     ephemeral: true,
                 });
+                break;
             }
-            break;
         }
         if (!is) {
             testData.push({ id: interaction.user.id, money: 500 });

@@ -3,7 +3,7 @@ const fs = require("fs");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("chk")
-    .setDescription("check how much money do you have."),
+    .setDescription("確認自己有多少錢錢"),
   async execute(client, interaction) {
     const jsonDataIn = fs.readFileSync("players.json");
     let testData = JSON.parse(jsonDataIn);

@@ -3,12 +3,12 @@ const fs = require("fs");
 module.exports = {
   data: new SlashCommandBuilder()
     .setName("chg")
-    .setDescription("change money")
+    .setDescription("更新小隊員的錢錢")
     .addUserOption((option) =>
-      option.setName("user").setDescription("user").setRequired(true)
+      option.setName("user").setDescription("要更改的小隊員的名字(@)").setRequired(true)
     )
     .addNumberOption((option) =>
-      option.setName("number").setDescription("user").setRequired(true)
+      option.setName("number").setDescription("要增加或減少的金額(減少請加負號)").setRequired(true)
     )
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
   async execute(client, interaction) {

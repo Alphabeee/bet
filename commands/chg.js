@@ -12,6 +12,7 @@ module.exports = {
     )
     .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
   async execute(client, interaction) {
+    if (interaction.guild.id !== '1078852228934271026') return interaction.reply('This command can only be used in another server.');
     const jsonDataIn = fs.readFileSync("players.json");
     let testData = JSON.parse(jsonDataIn);
     let is = 0;

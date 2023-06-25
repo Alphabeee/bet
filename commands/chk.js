@@ -18,8 +18,7 @@ module.exports = {
       }
     }
     if (!is) {
-      const newplayer = { id: interaction.user.id, money: 500 };
-      testData.push(newplayer);
+      testData.push({ id: interaction.user.id, money: 500 });
       interaction.reply({
         content: `You have 500$.`,
         ephemeral: true,

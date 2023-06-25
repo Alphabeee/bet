@@ -28,8 +28,7 @@ module.exports = {
       }
     }
     if (!is) {
-      const newplayer = { id: interaction.user.id, money: 500 + n };
-      testData.push(newplayer);
+      testData.push({ id: interaction.user.id, money: 500 });
       interaction.reply({
         content: `Sucessful add/minus ${n}$`,
         ephemeral: true,

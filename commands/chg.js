@@ -14,8 +14,28 @@ module.exports = {
   async execute(client, interaction) {
     const jsonDataIn = fs.readFileSync("players.json");
     let testData = JSON.parse(jsonDataIn);
-    const is = 0;
+    let is = 0;
     const u = interaction.options.getUser("user");
-    for (let i = 0; i < testData.length; i++) {}
+    const n = interaction.options.getNumber("number");
+    for (let i = 0; i < testData.length; i++) {
+      if (testData[i].id == u.id) {
+        testData[i].money += n;
+        is = 1;
+        interaction.reply({
+          content: `Sucessful add/minus ${n}$`,
+          ephemeral: true,
+        });
+      }
+    }
+    if (!is) {
+      const newplayer = { id: interaction.user.id, money: 500 + n };
+      testData.push(newplayer);
+      interaction.reply({
+        content: `Sucessful add/minus ${n}$`,
+        ephemeral: true,
+      });
+    }
+    const jsonDataOut = JSON.stringify(testData);
+    fs.writeFileSync("players.json", jsonDataOut);
   },
 };

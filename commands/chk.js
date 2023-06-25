@@ -20,12 +20,12 @@ module.exports = {
     if (!is) {
       const newplayer = { id: interaction.user.id, money: 500 };
       testData.push(newplayer);
-      const jsonDataOut = JSON.stringify(testData);
-      fs.writeFileSync("players.json", jsonDataOut);
       interaction.reply({
         content: `You have 500$.`,
         ephemeral: true,
       });
     }
+    const jsonDataOut = JSON.stringify(testData);
+    fs.writeFileSync("players.json", jsonDataOut);
   },
 };

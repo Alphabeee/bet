@@ -43,7 +43,7 @@ module.exports = {
                     });
                 } else {
                     interaction.reply({
-                        content: `玩家${u.username} 加0元 現有${testData[i].money + n}元 所以為什麼要這樣做`,
+                        content: `玩家${u.username} 加0元 現有${testData[i].money}元 所以為什麼要這樣做`,
                         ephemeral: true,
                     });
                 }

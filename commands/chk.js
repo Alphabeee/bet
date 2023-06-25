@@ -7,7 +7,7 @@ module.exports = {
   async execute(client, interaction) {
     const jsonDataIn = fs.readFileSync("players.json");
     let testData = JSON.parse(jsonDataIn);
-    const is = 0;
+    let is = 0;
     for (let i = 0; i < testData.length; i++) {
       if (testData[i].id == interaction.user.id) {
         is = 1;

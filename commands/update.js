@@ -44,7 +44,7 @@ module.exports = {
                     });
                 } else {
                     interaction.reply({
-                        content: `玩家 ${user.username} 加0元 現有${500 + n}元 所以為什麼要這樣做`,
+                        content: ` 加0元 現有${500 + n}元 所以為什麼要這樣做`,
                         ephemeral: true,
                     });
                 }

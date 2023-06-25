@@ -25,7 +25,7 @@ module.exports = {
                 is = 1;
                 if (testData[i].money + n < 0) {
                     interaction.reply({
-                        content: `玩家沒有錢了 剩下${testData[i].money}元`,
+                        content: `玩家${u.username} 沒有錢了 剩下${testData[i].money}元`,
                         ephemeral: true,
                     });
                     break;
@@ -33,17 +33,17 @@ module.exports = {
                 testData[i].money += n;
                 if (n > 0) {
                     interaction.reply({
-                        content: ` 加${n}元 現有${testData[i].money}元`,
+                        content: `玩家${u.username} 加${n}元 現有${testData[i].money}元`,
                         ephemeral: true,
                     });
                 } else if (n < 0) {
                     interaction.reply({
-                        content: ` 減${-n}元 現有${testData[i].money}元`,
+                        content: `玩家${u.username} 減${-n}元 現有${testData[i].money}元`,
                         ephemeral: true,
                     });
                 } else {
                     interaction.reply({
-                        content: ` 加0元 現有${500 + n}元 所以為什麼要這樣做`,
+                        content: `玩家${u.username} 加0元 現有${500 + n}元 所以為什麼要這樣做`,
                         ephemeral: true,
                     });
                 }
@@ -54,23 +54,23 @@ module.exports = {
             testData.push({ id: interaction.user.id, money: 500 + n });
             if (n < -500) {
                 interaction.reply({
-                    content: `玩家沒有錢了 現有${500}元`,
+                    content: `玩家${u.username} 沒有錢了 現有${500}元`,
                     ephemeral: true,
                 });
-                testData[testData.length - 1].money = 500;
+                testData[testData.length].money = 500;
             } else if (n > 0) {
                 interaction.reply({
-                    content: ` 加${n}元 現有${500 + n}元`,
+                    content: `玩家${u.username} 加${n}元 現有${500 + n}元`,
                     ephemeral: true,
                 });
             } else if (n < 0) {
                 interaction.reply({
-                    content: ` 減${-n}元 現有${500 + n}元`,
+                    content: `玩家${u.username} 減${-n}元 現有${500 + n}元`,
                     ephemeral: true,
                 });
             } else {
                 interaction.reply({
-                    content: ` 加0元 現有${500 + n}元 所以為什麼要這樣做`,
+                    content: `玩家${u.username} 加0元 現有${500 + n}元 所以為什麼要這樣做`,
                     ephemeral: true,
                 });
             }
@@ -79,3 +79,4 @@ module.exports = {
         fs.writeFileSync("players.json", jsonDataOut);
     },
 };
+

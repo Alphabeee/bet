@@ -3,7 +3,7 @@ const fs = require("fs");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("update")
-        .setDescription("update the money")
+        .setDescription("更新小隊員的錢錢")
         .addUserOption((option) =>
             option.setName("user").setDescription("要更改的小隊員的名字(@)").setRequired(true),
         )
@@ -22,6 +22,7 @@ module.exports = {
         const n = interaction.options.getNumber("number");
         for (let i = 0; i < testData.length; i++) {
             if (testData[i].id == u.id) {
+                is = 1;
                 if (testData[i].money + n < 0) {
                     interaction.reply({
                         content: `玩家沒有錢了 剩下${testData[i].money}元`,
@@ -30,7 +31,6 @@ module.exports = {
                     break;
                 }
                 testData[i].money += n;
-                is = 1;
                 if (n > 0) {
                     interaction.reply({
                         content: ` 加${n}元 現有${testData[i].money}元`,
@@ -50,13 +50,14 @@ module.exports = {
                 break;
             }
         }
-        if (!is) {
-            testData.push({ id: interaction.user.id, money: 500 });
-            if (n > 500) {
+        if (is != 1) {
+            testData.push({ id: interaction.user.id, money: 500 + n });
+            if (n < -500) {
                 interaction.reply({
-                    content: `玩家沒有錢了 現有${500 + n}元`,
+                    content: `玩家沒有錢了 現有${500}元`,
                     ephemeral: true,
                 });
+                testData[testData.length].money = 500;
             } else if (n > 0) {
                 interaction.reply({
                     content: ` 加${n}元 現有${500 + n}元`,

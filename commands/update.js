@@ -57,7 +57,7 @@ module.exports = {
                     content: `玩家沒有錢了 現有${500}元`,
                     ephemeral: true,
                 });
-                testData[testData.length].money = 500;
+                testData[testData.length - 1].money = 500;
             } else if (n > 0) {
                 interaction.reply({
                     content: ` 加${n}元 現有${500 + n}元`,

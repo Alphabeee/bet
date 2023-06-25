@@ -9,7 +9,7 @@ module.exports = {
     let testData = JSON.parse(jsonDataIn);
     const is = 0;
     for (let i = 0; i < testData.length; i++) {
-      if (testData[i].userid == interaction.user.id) {
+      if (testData[i].id == interaction.user.id) {
         is = 1;
         interaction.reply({
           content: `You have ${testData[i].money}$.`,

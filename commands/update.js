@@ -43,7 +43,7 @@ module.exports = {
                     });
                 } else {
                     interaction.reply({
-                        content: ` 加0元 現有${500 + n}元 所以為什麼要這樣做`,
+                        content: ` 加0元 現有${testData[i].money + n}元 所以為什麼要這樣做`,
                         ephemeral: true,
                     });
                 }

@@ -34,12 +34,12 @@ module.exports = {
                 let user = client.users.cache.get(`${testData[i].id}`);
                 if (n > 0) {
                     interaction.reply({
-                        content: `玩家 ${user.username} 加${n}元 現有${testData[i].money}元`,
+                        content: ` 加${n}元 現有${testData[i].money}元`,
                         ephemeral: true,
                     });
                 } else if (n < 0) {
                     interaction.reply({
-                        content: `玩家 ${user.username} 減${-n}元 現有${testData[i].money}元`,
+                        content: ` 減${-n}元 現有${testData[i].money}元`,
                         ephemeral: true,
                     });
                 } else {
@@ -61,17 +61,17 @@ module.exports = {
                 });
             } else if (n > 0) {
                 interaction.reply({
-                    content: `玩家 ${user.username} 加${n}元 現有${500 + n}元`,
+                    content: ` 加${n}元 現有${500 + n}元`,
                     ephemeral: true,
                 });
             } else if (n < 0) {
                 interaction.reply({
-                    content: `玩家 ${user.username} 減${-n}元 現有${500 + n}元`,
+                    content: ` 減${-n}元 現有${500 + n}元`,
                     ephemeral: true,
                 });
             } else {
                 interaction.reply({
-                    content: `玩家 ${user.username} 加0元 現有${500 + n}元 所以為什麼要這樣做`,
+                    content: ` 加0元 現有${500 + n}元 所以為什麼要這樣做`,
                     ephemeral: true,
                 });
             }

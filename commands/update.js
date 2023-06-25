@@ -31,7 +31,6 @@ module.exports = {
                 }
                 testData[i].money += n;
                 is = 1;
-                let user = client.users.cache.get(`${testData[i].id}`);
                 if (n > 0) {
                     interaction.reply({
                         content: ` 加${n}元 現有${testData[i].money}元`,
@@ -53,7 +52,6 @@ module.exports = {
         }
         if (!is) {
             testData.push({ id: interaction.user.id, money: 500 });
-            let user = client.users.cache.get(`${u}`);
             if (n > 500) {
                 interaction.reply({
                     content: `玩家沒有錢了 現有${500 + n}元`,

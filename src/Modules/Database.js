@@ -99,7 +99,7 @@ async function CreateUser(id){
 async function DeleteUser(id){
     return new Promise((resolve) => {
         const db = OpenConnection();
-        db.run("DELETE FROM Users WHERE id = ?", String(id), (error) => {
+        db.run("DELETE * FROM Users WHERE id = ?", String(id), (error) => {
             db.close();
             if (error){
                 console.error(error);
@@ -113,7 +113,7 @@ async function DeleteUser(id){
 async function ClearAllData(){
     return new Promise((resolve) => {
         const db = OpenConnection();
-        db.exec("DELETE * FROM Users", (error) => {
+        db.exec("DELETE FROM Users", (error) => {
             db.close();
             if (error){
                 console.error(error);

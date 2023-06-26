@@ -10,7 +10,7 @@ module.exports = {
         )
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
 
-    async execute(client, interaction){
+    async execute(bot, interaction){
         const TargetUser = interaction.options.getUser("user");
         DeleteUser(TargetUser.id).then((Status) => {
             console.log(`${Status ? "Successfully" : "Failed to"} delete <@${TargetUser.id}> from the database`);
@@ -18,6 +18,6 @@ module.exports = {
                 content: `${Status ? "Successfully" : "Failed to"} delete <@${TargetUser.id}> from the database`
             });
             return;
-        })
+        });
     }
 }

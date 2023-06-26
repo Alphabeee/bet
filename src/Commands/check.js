@@ -7,7 +7,7 @@ module.exports = {
         .setName("check")
         .setDescription("確認你現在有多少錢"),
 
-    async execute(client, interaction){
+    async execute(bot, interaction){
         const User = interaction.user;
         FindUser(User.id).then((data) => {
             if (!data){
@@ -15,15 +15,13 @@ module.exports = {
                 CreateUser(User.id);
                 interaction.reply({
                     content: `你現在有 ${STARTING_VALUE} 元`,
-                    ephemeral: true,
                 });
                 return;
             }
             interaction.reply({
                 content: `你現在有 ${data.money} 元`,
-                ephemeral: true,
-            })
+            });
             return;
-        })
+        });
     }
 }

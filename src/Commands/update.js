@@ -14,7 +14,7 @@ module.exports = {
         )
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
 
-        async execute(client, interaction){
+        async execute(bot, interaction){
             const Executer = interaction.user;
             const TargetUser = interaction.options.getUser("user");
             const NewValue = interaction.options.getNumber("number");
@@ -23,7 +23,7 @@ module.exports = {
                     CreateUser(TargetUser.id);
                     if (NewValue < -STARTING_VALUE){
                         interaction.reply({
-                            content: `數值不能小於500`,
+                            content: `數值不能少於500`,
                         });
                         return;
                     }
@@ -36,7 +36,7 @@ module.exports = {
                 }
                 if (data.money + NewValue < 0){
                     interaction.reply({
-                        content: `數值不能小於500`,
+                        content: `數值不能少於500`,
                     });
                     return;
                 }

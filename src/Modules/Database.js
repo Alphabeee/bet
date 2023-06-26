@@ -63,7 +63,6 @@ async function GetAllUsers(){
                 console.error(error);
                 return resolve(null);
             }
-            console.log(results);
             return resolve(results);
         });
     });

@@ -32,9 +32,15 @@ module.exports = {
         const Listener = interaction.channel.createMessageComponentCollector({ time: 50000 });
 
         Listener.on("collect", (Collected) => {
-            console.log(Collected);
             if (Collected.customId === "Cancel") return;
             ClearAllData();
+            const CompletedEmbed = new EmbedBuilder()
+                .setColor(0x27de0b)
+                .setTitle("Action Completed")
+                .setDescription("Cleared all data from the database")
+                .setTimestamp()
+            interaction.editReply({ embeds: [CompletedEmbed], components: [] });
+            return;
         });
     }
 }

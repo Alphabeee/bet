@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "bet",
+=======
+  "name": "bet_bot",
+>>>>>>> 62340e8e1f2cfc3f32f7e1809f4ac2ba8b6833a7
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,6 +13,7 @@
   },
   "keywords": [],
   "author": "",
+<<<<<<< HEAD
   "dependencies": {
     "@discordjs/opus": "^0.9.0",
     "@discordjs/voice": "^0.16.0",
@@ -22,5 +27,12 @@
     "libsodium-wrappers": "^0.7.11",
     "sqlite3": "^5.1.6",
     "ytdl-core": "^4.11.4"
+=======
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^14.11.0",
+    "dotenv": "^16.3.1",
+    "sqlite3": "^5.1.6"
+>>>>>>> 62340e8e1f2cfc3f32f7e1809f4ac2ba8b6833a7
   }
 }

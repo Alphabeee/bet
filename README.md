@@ -1,11 +1,15 @@
-# bet
+# CSIE Camp 2023 discord bet bot
 
-請記得新增: 
-1. .env
-   - TOKEN
-   - BOTID
-2. players.json
-   - 請記得加一對中括號 []
-   - 正式啟用前應清空該檔案
-3. npm i
-4. node index.js
+## Available Commands
+
+### **check**
+
+returns the current amount of money of the user executing this command
+
+### **update (user, value)**
+
+updates the given user's balance with the given value
+
+### **delete (user)**
+
+deletes the given user from the database

@@ -1,0 +1,2 @@
+-- SQLite
+ALTER TABLE Users ADD team INTEGER;

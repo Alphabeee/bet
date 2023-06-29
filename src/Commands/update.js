@@ -23,7 +23,7 @@ module.exports = {
             await CreateUser(TargetUser.id);
             if (NewValue + STARTING_VALUE < 0) {
                 await interaction.reply({
-                    content: `玩家 ${TargetUser.username} 沒錢了 QQ，他剩下${data.money} 代幣`,
+                    content: `玩家 ${TargetUser.username} 沒錢了 QQ，他剩下${STARTING_VALUE} 代幣`,
                     ephemeral: true,
                 });
                 return;

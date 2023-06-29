@@ -10,21 +10,20 @@ module.exports = {
         .setDefaultMemberPermissions(PermissionFlagsBits.ManageMessages),
 
     async execute(bot, interaction) {
-        const Executer = interaction.user;
         const TargetUser = interaction.options.getUser("user");
-        FindUser(TargetUser.id).then((data) => {
-            if (!data) {
-                interaction.reply({
-                    content: `玩家 ${TargetUser.username} 尚未被建立`,
-                    ephemeral: true,
-                });
-                return;
-            }
-            interaction.reply({
-                content: `玩家 ${TargetUser.username} 現有 ${data.money} 代幣`,
+        const data = await FindUser(TargetUser.id);
+
+        if (!data) {
+            await interaction.reply({
+                content: `玩家 ${TargetUser.username} 尚未被建立`,
                 ephemeral: true,
             });
             return;
+        }
+        await interaction.reply({
+            content: `玩家 ${TargetUser.username} 現有 ${data.money} 代幣`,
+            ephemeral: true,
         });
+        return;
     },
 };

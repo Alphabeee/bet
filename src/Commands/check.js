@@ -7,21 +7,20 @@ module.exports = {
 
     async execute(bot, interaction) {
         const User = interaction.user;
-        FindUser(User.id).then((data) => {
-            if (!data) {
-                console.log(`Failed to find user, creating user with id ${User.id}!`);
-                CreateUser(User.id);
-                interaction.reply({
-                    content: `你現在有 ${STARTING_VALUE} 代幣`,
-                    ephemeral: true,
-                });
-                return;
-            }
-            interaction.reply({
-                content: `你現在有 ${data.money} 代幣`,
+        const data = await FindUser(User.id);
+        if (!data) {
+            console.log(`Failed to find user, creating user with id ${User.id}!`);
+            await CreateUser(User.id);
+            await interaction.reply({
+                content: `你現在有 ${STARTING_VALUE} 代幣`,
                 ephemeral: true,
             });
             return;
+        }
+        await interaction.reply({
+            content: `你現在有 ${data.money} 代幣`,
+            ephemeral: true,
         });
+        return;
     },
 };

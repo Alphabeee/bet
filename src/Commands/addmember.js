@@ -14,20 +14,20 @@ module.exports = {
         const Executer = interaction.user;
         const TargetUser = interaction.options.getUser("user");
         const Team = interaction.options.getNumber("team");
-        FindUser(TargetUser.id).then((data) => {
-            if (!data) {
-                interaction.reply({
-                    content: `玩家 ${TargetUser.username} 尚未被建立`,
-                    ephemeral: true,
-                });
-                return;
-            }
-            UpdateTeam(Team, TargetUser.id);
-            interaction.reply({
-                content: `玩家 ${TargetUser.username} 已被加入第 ${Team} 小隊`,
+        const data = await FindUser(TargetUser.id);
+
+        if (!data) {
+            await interaction.reply({
+                content: `玩家 ${TargetUser.username} 尚未被建立`,
                 ephemeral: true,
             });
             return;
+        }
+        await UpdateTeam(Team, TargetUser.id);
+        await interaction.reply({
+            content: `玩家 ${TargetUser.username} 已被加入第 ${Team} 小隊`,
+            ephemeral: true,
         });
+        return;
     },
 };

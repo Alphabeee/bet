@@ -11,8 +11,8 @@ module.exports = {
         GetAllTeamStatistic().then(async (data) => {
             let Embed = new EmbedBuilder()
                 .setColor(0x44ff00)
-                .setTitle("All teams")
-                .setDescription("All teams and their money")
+                .setTitle("小隊排行榜")
+                .setDescription("各小隊金幣數排行")
                 .setTimestamp();
             for (let i = 0; i < data.length; i++) {
                 const { team, sum_money } = data[i];

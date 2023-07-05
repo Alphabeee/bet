@@ -14,8 +14,11 @@ module.exports = {
         const data = await FindUser(TargetUser.id);
 
         if (!data) {
+            await CreateUser(TargetUser.id);
+            await UpdateUser(TargetUser.id, 10);
+
             await interaction.reply({
-                content: `玩家 ${TargetUser.username} 尚未被建立`,
+                content: `玩家 ${TargetUser.username} 現有 10 代幣`,
                 ephemeral: true,
             });
             return;

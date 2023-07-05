@@ -56,7 +56,7 @@ async function FindUser(id) {
 async function GetAllUsers() {
     return new Promise((resolve) => {
         const db = OpenConnection();
-        db.all("SELECT * FROM Users ORDER BY money", (error, results) => {
+        db.all("SELECT * FROM Users ORDER BY money DESC LIMIT 8", (error, results) => {
             db.close();
             if (error) {
                 console.error(error);
@@ -141,7 +141,7 @@ async function GetAllTeamStatistic() {
     return new Promise((resolve) => {
         const db = OpenConnection();
         db.all(
-            "SELECT team, SUM(money) AS sum_money FROM Users GROUP BY team ORDER BY sum_money DESC",
+            "SELECT team, SUM(money) AS sum_money FROM Users WHERE team IS NOT NULL GROUP BY team ORDER BY sum_money DESC",
             (error, results) => {
                 db.close();
                 if (error) {

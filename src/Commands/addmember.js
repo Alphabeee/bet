@@ -17,11 +17,8 @@ module.exports = {
         const data = await FindUser(TargetUser.id);
 
         if (!data) {
-            await interaction.reply({
-                content: `玩家 ${TargetUser.username} 尚未被建立`,
-                ephemeral: true,
-            });
-            return;
+            await CreateUser(TargetUser.id);
+            await UpdateUser(TargetUser.id, 10);
         }
         await UpdateTeam(Team, TargetUser.id);
         await interaction.reply({
